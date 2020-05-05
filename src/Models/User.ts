@@ -1,4 +1,5 @@
 import { calculateAge } from "../utils";
+import ToDoList from "../Models/ToDoList";
 
 class User {
     private email: string | null;
@@ -6,6 +7,7 @@ class User {
     private lastName: string | null;
     private birthday: Date | null;
     private password: string | null;
+    public TodoList: ToDoList;
 
     constructor() {
         this.email = null;
@@ -13,6 +15,7 @@ class User {
         this.lastName = null;
         this.birthday = null;
         this.password = null;
+        this.TodoList = new ToDoList();
     }
 
     public setEmail(email: string) {
@@ -43,11 +46,11 @@ class User {
         return this.lastName || "";
     }
     get getBirthday(): Date | null {
-        return this.birthday || null;
+        return this.birthday;
     }
 
-    get getPassword(): string {
-        return this.password || "";
+    get getPassword(): string | null {
+        return this.password;
     }
 
     isValidEmail = (): boolean =>

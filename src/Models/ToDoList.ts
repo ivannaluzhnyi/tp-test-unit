@@ -2,15 +2,16 @@ import ItemToDoList from "./ItemToDoList";
 
 class ToDoList {
     private items: ItemToDoList[];
-    private lastTimeAdded: Date;
+    private lastTimeAdded: Date | null;
 
     constructor(items?: ItemToDoList[]) {
+        this.lastTimeAdded = null;
         this.items = this.setInitItems(items);
-        this.lastTimeAdded = new Date();
     }
 
     setInitItems(items?: ItemToDoList[]) {
         if (items && items.length < 11) {
+            this.lastTimeAdded = new Date();
             return items;
         }
         return [];
@@ -20,13 +21,15 @@ class ToDoList {
         this.lastTimeAdded = new Date();
     };
 
-    setItem = (itemTodo: ItemToDoList) => {
+    setItem = (itemTodo: ItemToDoList): ItemToDoList | null => {
         const checkedItem = this.canAddItem(itemTodo);
 
         if (checkedItem !== null) {
             this.setLastTimeAdded();
             this.items.push(itemTodo);
         }
+
+        return checkedItem;
     };
 
     get getItems(): ItemToDoList[] {
@@ -44,13 +47,16 @@ class ToDoList {
         this.getItems.find((it) => it.getName === name) ? true : false;
 
     private checkTime = () => {
-        const lastTime = this.lastTimeAdded.getTime();
-        const currentTime = new Date().getTime();
+        if (this.lastTimeAdded !== null) {
+            const lastTime = this.lastTimeAdded.getTime();
+            const currentTime = new Date().getTime();
 
-        const msec = currentTime - lastTime;
-        const mins = Math.floor(msec / 60000);
+            const msec = currentTime - lastTime;
+            const mins = Math.floor(msec / 60000);
 
-        return mins > 30;
+            return mins > 30;
+        }
+        return true;
     };
 }
 

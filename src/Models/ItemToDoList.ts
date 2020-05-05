@@ -1,7 +1,7 @@
 class ItemToDoList {
     private name: string | null;
     private content: string | null;
-    private created_at: Date | null;
+    private created_at: Date;
 
     constructor(name?: string, content?: string) {
         this.name = name || null;
@@ -28,7 +28,7 @@ class ItemToDoList {
     }
 
     get getCreatedAt(): Date {
-        return this.created_at || new Date();
+        return this.created_at;
     }
 }
 
