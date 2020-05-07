@@ -3,11 +3,17 @@ import ItemToDoList from "../src/Models/ItemTodoList";
 
 import { v4 as uuidv4 } from "uuid";
 
+jest.useFakeTimers();
+
 describe("ToDoList Tests", () => {
     const inst = new ToDoList();
 
     it("ToDoList is empty", () => {
         expect(inst.getItems).toEqual([]);
+    });
+
+    it("ToDoList check ID", () => {
+        expect(inst.getId).not.toEqual(null);
     });
 
     it("check  canAddItem function", () => {
@@ -37,6 +43,8 @@ describe("ToDoList Tests", () => {
     });
 
     it("setItem with value ", () => {
-        console.log("inst ==> ", inst);
+        const item = new ItemToDoList("test 2", uuidv4());
+        expect(inst.canAddItem(item)).toEqual(null);
+        expect(inst.setItem(item)).toEqual(null);
     });
 });

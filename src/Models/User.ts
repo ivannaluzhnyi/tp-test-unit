@@ -1,5 +1,5 @@
 import { calculateAge } from "../utils";
-import ToDoList from "../Models/ToDoList";
+import { v4 as uuidv4 } from "uuid";
 
 class User {
     private email: string | null;
@@ -8,6 +8,7 @@ class User {
     private birthday: Date | null;
     private password: string | null;
     private idTodoList: string | null;
+    private id: string;
 
     constructor() {
         this.email = null;
@@ -16,6 +17,7 @@ class User {
         this.birthday = null;
         this.password = null;
         this.idTodoList = null;
+        this.id = uuidv4();
     }
 
     public setEmail(email: string) {
@@ -32,8 +34,12 @@ class User {
         this.password = password;
     }
 
-    public setBirthDay(birthday: Date) {
-        this.birthday = birthday;
+    public setBirthDay(birthday: Date | string) {
+        if (typeof birthday === "string") {
+            this.birthday = new Date(birthday);
+        } else {
+            this.birthday = birthday;
+        }
     }
     public setIdTodoList(idTodoList: string) {
         this.idTodoList = idTodoList;
@@ -58,6 +64,10 @@ class User {
 
     get getPassword(): string | null {
         return this.password;
+    }
+
+    get getId(): string {
+        return this.id;
     }
 
     isValidEmail = (): boolean =>

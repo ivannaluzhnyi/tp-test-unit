@@ -33,9 +33,6 @@ class App {
                 { usernameField: "email" },
                 (email, password, done) => {
                     console.log("Inside local strategy callback");
-                    // here is where you make a call to the database
-                    // to find the user based on their username or email address
-                    // for now, we'll just pretend we found that it was users[0]
                     const user = users[0];
                     if (email === user.email && password === user.password) {
                         console.log("Local strategy returned true");

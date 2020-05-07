@@ -1,12 +1,15 @@
 import ItemToDoList from "./ItemToDoList";
+import { v4 as uuidv4 } from "uuid";
 
 class ToDoList {
+    private id: string;
     private items: ItemToDoList[];
     private lastTimeAdded: number | null;
 
     constructor(items?: ItemToDoList[]) {
         this.lastTimeAdded = null;
         this.items = this.setInitItems(items);
+        this.id = uuidv4();
     }
 
     setInitItems(items?: ItemToDoList[]) {
@@ -34,6 +37,10 @@ class ToDoList {
 
     get getItems(): ItemToDoList[] {
         return this.items;
+    }
+
+    get getId(): string {
+        return this.id;
     }
 
     public canAddItem = (itemTodo: ItemToDoList) =>

@@ -1,0 +1,29 @@
+GET http://localhost:5000/users HTTP/1.1
+
+###
+
+POST http://localhost:5000/user/create HTTP/1.1
+content-type: application/json
+
+{
+    "email": "iavn.nls@gmail.com",
+    "firstName": "Ivan",
+    "lastName": "Nalzuhnyi",
+    "password": "qdqsdqsdqsdhhhqsd",
+    "birthday": "2000-03-13"
+}   
+
+
+###
+
+
+POST http://localhost:5000/user/create HTTP/1.1
+content-type: application/json
+
+{
+    "email": "test@test.com",
+    "firstName": "test",
+    "lastName": "Test",
+    "password": "sqsdqsdqsdqsdqsdqsdsqs",
+    "birthday": "2000-03-13"
+}   
