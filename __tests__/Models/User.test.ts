@@ -1,6 +1,4 @@
-import User from "../src/Models/User";
-
-import { v4 as uuidv4 } from "uuid";
+import User from "../../src/Models/User";
 
 describe("User Tests", () => {
     const userInstance = new User();

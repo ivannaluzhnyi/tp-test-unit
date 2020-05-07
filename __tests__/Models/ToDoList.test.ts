@@ -1,5 +1,5 @@
-import ToDoList from "../src/Models/ToDoList";
-import ItemToDoList from "../src/Models/ItemTodoList";
+import ToDoList from "../../src/Models/ToDoList";
+import ItemToDoList from "../../src/Models/ItemTodoList";
 
 import { v4 as uuidv4 } from "uuid";
 

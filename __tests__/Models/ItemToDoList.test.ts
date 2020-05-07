@@ -1,5 +1,5 @@
-import ItemToDoList from "../src/Models/ItemTodoList";
-import { getRandomString } from "../src";
+import ItemToDoList from "../../src/Models/ItemTodoList";
+import { getRandomString } from "../../src";
 
 describe("ItemToDoList Tests", () => {
     const itemInst = new ItemToDoList();
