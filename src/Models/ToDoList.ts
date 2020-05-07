@@ -2,7 +2,7 @@ import ItemToDoList from "./ItemToDoList";
 
 class ToDoList {
     private items: ItemToDoList[];
-    private lastTimeAdded: Date | null;
+    private lastTimeAdded: number | null;
 
     constructor(items?: ItemToDoList[]) {
         this.lastTimeAdded = null;
@@ -11,14 +11,14 @@ class ToDoList {
 
     setInitItems(items?: ItemToDoList[]) {
         if (items && items.length < 11) {
-            this.lastTimeAdded = new Date();
+            this.lastTimeAdded = new Date().getTime();
             return items;
         }
         return [];
     }
 
     setLastTimeAdded = () => {
-        this.lastTimeAdded = new Date();
+        this.lastTimeAdded = new Date().getTime();
     };
 
     setItem = (itemTodo: ItemToDoList): ItemToDoList | null => {
@@ -26,7 +26,7 @@ class ToDoList {
 
         if (checkedItem !== null) {
             this.setLastTimeAdded();
-            this.items.push(itemTodo);
+            this.items.push(checkedItem);
         }
 
         return checkedItem;
@@ -44,11 +44,11 @@ class ToDoList {
             : null;
 
     private isNameExist = (name: string) =>
-        this.getItems.find((it) => it.getName === name) ? true : false;
+        this.getItems.find((it) => it && it.getName === name) ? true : false;
 
     private checkTime = () => {
         if (this.lastTimeAdded !== null) {
-            const lastTime = this.lastTimeAdded.getTime();
+            const lastTime = this.lastTimeAdded;
             const currentTime = new Date().getTime();
 
             const msec = currentTime - lastTime;

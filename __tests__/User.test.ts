@@ -1,5 +1,7 @@
 import User from "../src/Models/User";
 
+import { v4 as uuidv4 } from "uuid";
+
 describe("User Tests", () => {
     const userInstance = new User();
 
@@ -8,6 +10,16 @@ describe("User Tests", () => {
         userInstance.setFirstName("Ivan");
         userInstance.setLastName("Naluzhnyi");
         userInstance.setPassword("12345678");
+    });
+
+    it("idTodoList is null ", () => {
+        expect(userInstance.getIdTodoList === null).toBeTruthy();
+    });
+
+    it("idTodoList exist", () => {
+        const id = uuidv4();
+        userInstance.setIdTodoList(id);
+        expect(userInstance.getIdTodoList === id).toBeTruthy();
     });
 
     it("check date null", () => {

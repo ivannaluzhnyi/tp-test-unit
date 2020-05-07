@@ -1,4 +1,5 @@
 import ItemToDoList from "../src/Models/ItemTodoList";
+import { getRandomString } from "../src";
 
 describe("ItemToDoList Tests", () => {
     const itemInst = new ItemToDoList();
@@ -18,10 +19,7 @@ describe("ItemToDoList Tests", () => {
     });
 
     it("check length content", () => {
-        let content = "";
-        for (let index = 0; index < 1005; index++) {
-            content = content + index;
-        }
+        let content = getRandomString(1001);
 
         itemInst.setContent(content);
         expect(itemInst.getContent.length === content.length).toBeFalsy();
@@ -30,8 +28,6 @@ describe("ItemToDoList Tests", () => {
     it("check created time", () => {
         // doesn't use initItem because the time will not be the same, so you have to create the same instance
         const newIt = new ItemToDoList();
-        expect(newIt.getCreatedAt.getTime() === new Date().getTime()).toBe(
-            true
-        );
+        expect(newIt.getCreatedAt === new Date().getTime()).toBe(true);
     });
 });

@@ -7,7 +7,7 @@ class User {
     private lastName: string | null;
     private birthday: Date | null;
     private password: string | null;
-    public TodoList: ToDoList;
+    private idTodoList: string | null;
 
     constructor() {
         this.email = null;
@@ -15,7 +15,7 @@ class User {
         this.lastName = null;
         this.birthday = null;
         this.password = null;
-        this.TodoList = new ToDoList();
+        this.idTodoList = null;
     }
 
     public setEmail(email: string) {
@@ -34,6 +34,13 @@ class User {
 
     public setBirthDay(birthday: Date) {
         this.birthday = birthday;
+    }
+    public setIdTodoList(idTodoList: string) {
+        this.idTodoList = idTodoList;
+    }
+
+    get getIdTodoList() {
+        return this.idTodoList;
     }
 
     get getEmail(): string {
