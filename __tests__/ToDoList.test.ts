@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 jest.useFakeTimers();
 
 describe("ToDoList Tests", () => {
-    const inst = new ToDoList();
+    const inst = new ToDoList({});
 
     it("getItems is empty", () => {
         expect(inst.getItems).toEqual([]);
@@ -19,7 +19,6 @@ describe("ToDoList Tests", () => {
     it("setUserId if null", () => {
         const id = uuidv4();
         inst.setUserId(id);
-
         expect(inst.getUserId).toEqual(id);
     });
 
@@ -54,7 +53,18 @@ describe("ToDoList Tests", () => {
 
     it("setInitItems with value ", () => {
         const item = new ItemToDoList("test 2", uuidv4());
-        const initTodo = new ToDoList([item]);
+        const initTodo = new ToDoList({ items: [item] });
+
+        expect(initTodo.getItems).toEqual([item]);
+        expect(initTodo.canAddItem(item)).toEqual(null);
+    });
+
+    it("setInitItems with value + lastTimeAdded ", () => {
+        const item = new ItemToDoList("test 2", uuidv4());
+        const initTodo = new ToDoList({
+            lastTimeAdded: new Date().getTime(),
+            items: [item],
+        });
 
         expect(initTodo.getItems).toEqual([item]);
         expect(initTodo.canAddItem(item)).toEqual(null);
@@ -68,12 +78,18 @@ describe("ToDoList Tests", () => {
 
     it("userId constructor ", () => {
         const id = uuidv4();
-        const nInst = new ToDoList(undefined, id);
+        const nInst = new ToDoList({ userId: id });
         expect(nInst.getUserId).toEqual(id);
     });
 
+    it("id constructor ", () => {
+        const id = uuidv4();
+        const nInst = new ToDoList({ id });
+        expect(nInst.getId).toEqual(id);
+    });
+
     it("userId is null constructor ", () => {
-        const nInst = new ToDoList();
+        const nInst = new ToDoList({});
         expect(nInst.getUserId).toEqual(null);
     });
 });

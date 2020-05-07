@@ -1,22 +1,36 @@
 import ItemToDoList from "./ItemToDoList";
 import { v4 as uuidv4 } from "uuid";
 
+export type ToDoListConstructorProps = {
+    items?: ItemToDoList[];
+    userId?: string | null;
+    lastTimeAdded?: number;
+    id?: string;
+};
+
 class ToDoList {
     private id: string;
     private items: ItemToDoList[];
     private lastTimeAdded: number | null;
     private userId: string | null;
 
-    constructor(items?: ItemToDoList[], userId?: string | null) {
+    constructor({
+        id,
+        items,
+        lastTimeAdded,
+        userId,
+    }: ToDoListConstructorProps) {
         this.lastTimeAdded = null;
-        this.items = this.setInitItems(items);
-        this.id = uuidv4();
+        this.items = this.setInitItems(items, lastTimeAdded);
+        this.id = id ? id : uuidv4();
         this.userId = userId ? userId : null;
     }
 
-    setInitItems(items?: ItemToDoList[]) {
+    setInitItems(items?: ItemToDoList[], lastTimeAdded?: number) {
         if (items && items.length < 11) {
-            this.lastTimeAdded = new Date().getTime();
+            this.lastTimeAdded = lastTimeAdded
+                ? lastTimeAdded
+                : new Date().getTime();
             return items;
         }
         return [];

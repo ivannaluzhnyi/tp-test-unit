@@ -16,11 +16,13 @@ export class Controller {
     }
 
     public routes() {
-        this.app.route("/").get(this.todoListService.welcomeMessage);
         this.app.route("/register").get(this.authService.regisetrUser);
         this.app.route("/register").post(this.authService.regisetrUserPost);
 
         this.app.route("/user/create").post(this.userService.create);
         this.app.route("/users").get(this.userService.getUsers);
+
+        this.app.route("/todos").get(this.todoListService.getAllTodos);
+        this.app.route("/todo/create").post(this.todoListService.create);
     }
 }

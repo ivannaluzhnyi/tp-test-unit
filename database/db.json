@@ -1,14 +1,20 @@
 {
-  "users": [
-    {
-      "email": "iavn.nls@gmail.com",
-      "firstName": "Ivan",
-      "lastName": "Nalzuhnyi",
-      "birthday": "2000-03-13T00:00:00.000Z",
-      "password": "qdqsdqsdqsdhhhqsd",
-      "idTodoList": null,
-      "id": "abd22dc1-05b9-4a1d-9753-d51f7211ad1b"
-    }
-  ],
-  "todoList": []
+    "users": [
+        {
+            "email": "iavn.nls@gmail.com",
+            "firstName": "Ivan",
+            "lastName": "Nalzuhnyi",
+            "birthday": "2000-03-13T00:00:00.000Z",
+            "password": "qdqsdqsdqsdhhhqsd",
+            "id": "90e1f693-5fd5-41aa-9577-5b0bb74baeca"
+        }
+    ],
+    "todos": [
+        {
+            "lastTimeAdded": 1588857583955,
+            "items": [],
+            "id": "c91a7186-939c-44ee-a817-b00cd10a235f",
+            "userId": "90e1f693-5fd5-41aa-9577-5b0bb74baeca"
+        }
+    ]
 }
