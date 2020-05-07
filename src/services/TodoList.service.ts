@@ -65,26 +65,13 @@ export class TodoList {
         res: Response,
         data: ToDoListConstructorProps
     ) => {
-        console.log("data => ", data);
         const eList = new ToDoListModel({
             ...data,
         });
 
-        console.log("eList => ", eList);
-
-        const newTodosListResponse = await this.axiosInstance({
-            url: `/todos/${eList.getId}`,
-            method: "POST",
-            data: eList,
-        });
-
-        console.log("newTodosListResponse => ", newTodosListResponse);
-
-        console.log("eList.getId => ", eList.getId);
-
         if (eList.setItem(req.body.items[0]) !== null) {
             const newTodosListResponse = await this.axiosInstance({
-                url: `/todos?id=${eList.getId}`,
+                url: `/todos/${eList.getId}`,
                 method: "PUT",
                 data: eList,
             });

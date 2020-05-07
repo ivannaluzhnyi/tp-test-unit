@@ -35,3 +35,23 @@ content-type: application/json
         }
     ]
 }   
+
+
+###
+
+POST http://localhost:5000/todo/create HTTP/1.1
+content-type: application/json
+
+{
+    "userId": "90e1f693-5fd5-41aa-9577-5b0bb74baeca",
+    "items": [
+        {
+            "name": "Test 1 todo",
+            "content": "balblablabla-----"
+        },
+        {
+            "name": "Test 2 todo",
+            "content": "balblablabla-----"
+        }
+    ]
+}   
