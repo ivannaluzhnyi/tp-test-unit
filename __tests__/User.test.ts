@@ -16,6 +16,10 @@ describe("User Tests", () => {
         expect(userInstance.getIdTodoList === null).toBeTruthy();
     });
 
+    it("User id test ", () => {
+        expect(userInstance.getId).not.toEqual("");
+    });
+
     it("idTodoList exist", () => {
         const id = uuidv4();
         userInstance.setIdTodoList(id);
@@ -44,6 +48,11 @@ describe("User Tests", () => {
 
     it("birthday null", () => {
         expect(new User().isValid()).toBeFalsy();
+    });
+
+    it("birthday string", () => {
+        userInstance.setBirthDay("2000-01-02");
+        expect(userInstance.isValid()).toBeTruthy();
     });
 
     it("birthday", () => {
