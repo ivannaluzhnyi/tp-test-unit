@@ -5,11 +5,13 @@ class ToDoList {
     private id: string;
     private items: ItemToDoList[];
     private lastTimeAdded: number | null;
+    private userId: string | null;
 
-    constructor(items?: ItemToDoList[]) {
+    constructor(items?: ItemToDoList[], userId?: string | null) {
         this.lastTimeAdded = null;
         this.items = this.setInitItems(items);
         this.id = uuidv4();
+        this.userId = userId ? userId : null;
     }
 
     setInitItems(items?: ItemToDoList[]) {
@@ -34,6 +36,19 @@ class ToDoList {
 
         return checkedItem;
     };
+
+    setUserId = (uId: string) => {
+        if (this.userId === null) {
+            this.userId = uId;
+            return uId;
+        }
+
+        return this.getUserId;
+    };
+
+    get getUserId(): string | null {
+        return this.userId;
+    }
 
     get getItems(): ItemToDoList[] {
         return this.items;

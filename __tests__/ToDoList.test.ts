@@ -8,12 +8,30 @@ jest.useFakeTimers();
 describe("ToDoList Tests", () => {
     const inst = new ToDoList();
 
-    it("ToDoList is empty", () => {
+    it("getItems is empty", () => {
         expect(inst.getItems).toEqual([]);
     });
 
-    it("ToDoList check ID", () => {
+    it("getUserId is null", () => {
+        expect(inst.getUserId).toEqual(null);
+    });
+
+    it("setUserId if null", () => {
+        const id = uuidv4();
+        inst.setUserId(id);
+
+        expect(inst.getUserId).toEqual(id);
+    });
+
+    it("getId render correectly", () => {
         expect(inst.getId).not.toEqual(null);
+    });
+
+    it("setUserId if id existe", () => {
+        const id = uuidv4();
+        inst.setUserId(id);
+
+        expect(inst.getUserId).toEqual(inst.getUserId);
     });
 
     it("check  canAddItem function", () => {
@@ -46,5 +64,16 @@ describe("ToDoList Tests", () => {
         const item = new ItemToDoList("test 2", uuidv4());
         expect(inst.canAddItem(item)).toEqual(null);
         expect(inst.setItem(item)).toEqual(null);
+    });
+
+    it("userId constructor ", () => {
+        const id = uuidv4();
+        const nInst = new ToDoList(undefined, id);
+        expect(nInst.getUserId).toEqual(id);
+    });
+
+    it("userId is null constructor ", () => {
+        const nInst = new ToDoList();
+        expect(nInst.getUserId).toEqual(null);
     });
 });

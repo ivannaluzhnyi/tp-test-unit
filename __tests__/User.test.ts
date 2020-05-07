@@ -12,18 +12,8 @@ describe("User Tests", () => {
         userInstance.setPassword("12345678");
     });
 
-    it("idTodoList is null ", () => {
-        expect(userInstance.getIdTodoList === null).toBeTruthy();
-    });
-
     it("User id test ", () => {
         expect(userInstance.getId).not.toEqual("");
-    });
-
-    it("idTodoList exist", () => {
-        const id = uuidv4();
-        userInstance.setIdTodoList(id);
-        expect(userInstance.getIdTodoList === id).toBeTruthy();
     });
 
     it("check date null", () => {

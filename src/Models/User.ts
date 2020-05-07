@@ -7,7 +7,6 @@ class User {
     private lastName: string | null;
     private birthday: Date | null;
     private password: string | null;
-    private idTodoList: string | null;
     private id: string;
 
     constructor() {
@@ -16,7 +15,6 @@ class User {
         this.lastName = null;
         this.birthday = null;
         this.password = null;
-        this.idTodoList = null;
         this.id = uuidv4();
     }
 
@@ -40,13 +38,6 @@ class User {
         } else {
             this.birthday = birthday;
         }
-    }
-    public setIdTodoList(idTodoList: string) {
-        this.idTodoList = idTodoList;
-    }
-
-    get getIdTodoList() {
-        return this.idTodoList;
     }
 
     get getEmail(): string {

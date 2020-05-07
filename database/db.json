@@ -1,4 +1,14 @@
 {
-    "users": [],
-    "todoList": []
+  "users": [
+    {
+      "email": "iavn.nls@gmail.com",
+      "firstName": "Ivan",
+      "lastName": "Nalzuhnyi",
+      "birthday": "2000-03-13T00:00:00.000Z",
+      "password": "qdqsdqsdqsdhhhqsd",
+      "idTodoList": null,
+      "id": "abd22dc1-05b9-4a1d-9753-d51f7211ad1b"
+    }
+  ],
+  "todoList": []
 }
