@@ -4,7 +4,7 @@ import axios, { AxiosInstance } from "axios";
 import { EErrorCode } from "../constants/enum";
 import UserModel from "../Models/User";
 
-export class User {
+export class UserService {
     private axiosInstance: AxiosInstance;
 
     constructor() {

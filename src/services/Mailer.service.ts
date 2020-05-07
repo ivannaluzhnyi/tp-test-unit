@@ -13,6 +13,7 @@ export class MailerService {
         }
         return true;
     }
+
     sendMail(to: string, subject: string, content: string) {
         let options = {
             from: "toDoListAdmin@gmail.com",

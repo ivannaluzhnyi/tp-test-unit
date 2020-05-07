@@ -4,7 +4,7 @@ import { apiURL } from "../constants/todo.constants";
 import { EErrorCode } from "../constants/enum";
 import ToDoListModel, { ToDoListConstructorProps } from "../Models/ToDoList";
 
-export class TodoList {
+export class TodoListService {
     private axiosInstance: AxiosInstance;
 
     constructor() {

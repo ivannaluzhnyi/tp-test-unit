@@ -1,17 +1,17 @@
 import { Application } from "express";
-import { TodoList } from "./services/TodoList.service";
+import { TodoListService } from "./services/TodoList.service";
 import { Auth } from "./services/Auth.service";
-import { User } from "./services/User.service";
+import { UserService } from "./services/User.service";
 
 export class Controller {
-    private todoListService: TodoList;
+    private todoListService: TodoListService;
     private authService: Auth;
-    private userService: User;
+    private userService: UserService;
 
     constructor(private app: Application) {
-        this.todoListService = new TodoList();
+        this.todoListService = new TodoListService();
         this.authService = new Auth();
-        this.userService = new User();
+        this.userService = new UserService();
         this.routes();
     }
 

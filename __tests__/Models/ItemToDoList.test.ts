@@ -27,7 +27,8 @@ describe("ItemToDoList Tests", () => {
 
     it("check created time", () => {
         // doesn't use initItem because the time will not be the same, so you have to create the same instance
-        const newIt = new ItemToDoList();
-        expect(newIt.getCreatedAt === new Date().getTime()).toBe(true);
+        expect(new ItemToDoList().getCreatedAt === new Date().getTime()).toBe(
+            true
+        );
     });
 });
